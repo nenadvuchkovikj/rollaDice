@@ -293,6 +293,7 @@ yambBtn.addEventListener('click', () => {
 rollYambBtn.addEventListener('click', () => {
         rollYambBtn.disabled = true;
         resetYamb.disabled = true;
+        exitYamb.disabled = true;
         rollsLeft--;
         if(rollsLeft === 3 || rollsLeft === 2){
             Rleft.style.color = "rgb(58, 197, 58)";
@@ -318,6 +319,7 @@ rollYambBtn.addEventListener('click', () => {
                         extraRolls.disabled = false;
                     }
                     resetYamb.disabled = false;
+                    exitYamb.disabled = false;
                 }, 3100);
             }
         });
