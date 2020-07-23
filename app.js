@@ -70,6 +70,12 @@ newGame.addEventListener('click', () =>{
     RollButton.disabled = false;
     dice.removeChild(dice.firstChild);
     PCdice.removeChild(PCdice.firstChild);
+    const el = document.createElement('i');
+    el.classList = 'fas fa-dice-d6 fa-7x';
+    const el2 = document.createElement('i');
+    el2.classList = 'fas fa-dice-d6 fa-7x';
+    dice.appendChild(el);
+    PCdice.appendChild(el2);
 });
 
 exitOpt.addEventListener('click', ()=>{
@@ -279,6 +285,9 @@ exitYamb.addEventListener('click', () => {
         extraRolls.disabled = true;
         Rleft.style.color = "rgb(58, 197, 58)";
         selected = 0;
+        const el = document.createElement('i');
+        el.classList = 'fas fa-dice-d6 fa-7x';
+        kocka.appendChild(el);
     });
 });
 
@@ -366,7 +375,7 @@ let selected = 0;
 kocki.forEach(kocka => {
     kocka.style.color = 'white';
     kocka.addEventListener('click',()=>{
-        if(kocka.style.color === 'white'){
+        if(kocka.style.color === 'white' && !(kocka.firstElementChild.classList.contains('fa-dice-d6'))){
             kocka.style.color = 'rgb(44, 44, 119)';
             selected++;
         }
@@ -391,6 +400,9 @@ resetYamb.addEventListener('click',() => {
         extraRolls.disabled = true;
         Rleft.style.color = "rgb(58, 197, 58)";
         selected = 0;
+        const el = document.createElement('i');
+        el.classList = 'fas fa-dice-d6 fa-7x';
+        kocka.appendChild(el);
     });
 
 });
