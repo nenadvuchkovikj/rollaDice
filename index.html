@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "icon" href ="img/icon.png"   type = "image/x-icon"> 
     <title>Roll a Dice</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1 class="fall">Roll a Dice</h1>
+            <h1>Roll a Dice</h1>
             <img src="./img/rolling-dice-cup.png" alt="">
             <h2 id="playUpTo" style="margin-top: 1rem"></h2>
         </div>
 
         <div class="intro">
-                <button class="btn-custom mb-2" id="startBtn">Play</button>
+                <button class="btn-custom mb-2" id="startBtn">Play Versus</button>
+                <button class="btn-custom mb-2" id="yambBtn">Play Yamb</button>
                 <p>Nenou &copy; All Rights Reserved.</p>
         </div>
 
@@ -26,6 +28,7 @@
             <button class="btn-custom btn-block btn-opt" id="7">Play up to 7</button>
             <button class="btn-custom btn-block btn-opt" id="10">Play up to 10</button>
             <button class="btn-custom btn-block btn-opt" id="15">Play up to 15</button>
+            <button id="exitOpt" class="btn-custom" style="margin-top:1rem">Back</button>
         </div>
 
         <div class="game">
@@ -49,6 +52,27 @@
                 <button class="btn-custom" id="clearBtn" disabled>Reset</button>
             </div>
         </div>
+        
+
+        <div class="yamb-game">
+            <div class="yamb">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <h5 style="margin-top: 3rem;" id="rLeft"></h5>
+            <h5 style="margin-top: 0.3rem;" id="extramsg"></h5>
+            <p style="margin-top: 0.5rem;">Click on the dice if you want to keep it</p>
+            <button id="rollYamb" class="btn-custom" style="margin-top:1rem;">Roll</button>
+            <button id="resetYamb" class="btn-custom" style="margin-top:1rem;">Reset</button>
+            <button id="extraYamb" class="btn-custom" style="margin-top:1rem;" disabled>Extra 2 rolls</button>
+            <button id="exitYamb" class="btn-custom" style="margin-top:1rem">Exit</button>
+
+        </div>
+        
     
         <div class="end-game">
             <h1 class="winnerMessage"></h1>

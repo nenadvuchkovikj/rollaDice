@@ -22,6 +22,7 @@ body{
     justify-content: center;
     margin-bottom: 100px;
     margin-top: 1rem;
+    transition: all 1s ease;
 }
 .header h1{
     margin-bottom: 1rem;
@@ -169,35 +170,67 @@ a{
     animation: shake 3s;
 }
 
+.yamb-game{
+    opacity:0;
+    pointer-events: none;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+.yamb{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
+
+
+
 @media(max-height:700px){
 
-    .game-options, .end-game, .game{
+    .end-game, .game{
         top:65%;
+    }
+    .yamb-game, .game-options{
+        top:70%;
     }
     
 }
 @media(max-height: 600px){
-    .game-options, .end-game, .game{
+     .end-game, .game{
         top:70%;
     }
+    .yamb-game, .game-options{
+        top:80%;
+    }
+    
 }
 @media(max-height: 450px){
-    .game-options, .end-game, .game{
+     .end-game, .game{
         top:90%;
+    }
+    .yamb-game, .game-options{
+        top:100%;
     }
 }
 
 @media(max-height: 380px){
-    .game-options, .end-game, .game{
+    .end-game, .game{
        top: 100%;
     }
-
+    .yamb-game, .game-options {
+        top:120%;
+    }
 }
 
 @media(max-height: 320px){
-    .game-options, .end-game, .game{
+    .end-game, .game{
         top: 120%;
      }
+     .yamb-game, .game-options{
+        top:140%;
+    }
 }
 
 
