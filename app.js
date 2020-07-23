@@ -278,6 +278,7 @@ exitYamb.addEventListener('click', () => {
         rollYambBtn.disabled = false;
         extraRolls.disabled = true;
         Rleft.style.color = "rgb(58, 197, 58)";
+        selected = 0;
     });
 });
 
@@ -305,8 +306,10 @@ rollYambBtn.addEventListener('click', () => {
         Rleft.textContent = `${rollsLeft} rolls left`;
         kocki.forEach(kocka =>{
             if(kocka.style.color === 'rgb(44, 44, 119)'){
-                resetYamb.disabled = false;
-                exitYamb.disabled = false;
+                if(selected === 6){
+                    resetYamb.disabled = false;
+                    exitYamb.disabled = false;
+                }
             }else{
                 throwdice(kocka);
                 kocka.classList.remove('shake');
@@ -336,8 +339,10 @@ extraRolls.addEventListener('click', () => {
     kocki.forEach(kocka =>{
         
         if(kocka.style.color === 'rgb(44, 44, 119)'){
-            resetYamb.disabled = false;
-            exitYamb.disabled = false;
+            if(selected === 6){
+                resetYamb.disabled = false;
+                exitYamb.disabled = false;
+            }
         }else{
             throwdice(kocka);
             kocka.classList.remove('shake');
@@ -356,15 +361,19 @@ extraRolls.addEventListener('click', () => {
     });
    
 });
-
+let selected = 0;
 
 kocki.forEach(kocka => {
     kocka.style.color = 'white';
     kocka.addEventListener('click',()=>{
         if(kocka.style.color === 'white'){
             kocka.style.color = 'rgb(44, 44, 119)';
+            selected++;
         }
-        else kocka.style.color = 'white';
+        else{
+            kocka.style.color = 'white';
+            selected--;
+        }
     });
 });
 
@@ -381,6 +390,7 @@ resetYamb.addEventListener('click',() => {
         rollYambBtn.disabled = false;
         extraRolls.disabled = true;
         Rleft.style.color = "rgb(58, 197, 58)";
+        selected = 0;
     });
 
 });
