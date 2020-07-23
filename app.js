@@ -67,6 +67,8 @@ RollButton.addEventListener('click', () => {
     RollButton.disabled = true;
     throwdice(dice);
     throwdice(PCdice);
+    dice.classList.remove('shake');
+    PCdice.classList.remove('shake');
     setTimeout(()=>{
         let Pdice = roll(dice);
         let Cdice = roll(PCdice);
@@ -163,6 +165,7 @@ throwdice = (kocka) => {
             }
             const el = document.createElement('img');
             el.src = `./img/inverted-dice-${i}.png`;
+            kocka.classList.add('shake');
             kocka.appendChild(el);
             i++;
         }, 100);
