@@ -329,6 +329,7 @@ rollYambBtn.addEventListener('click', () => {
 extraRolls.addEventListener('click', () => {
     extraRolls.disabled = true;
     resetYamb.disabled = true;
+    exitYamb.disabled = true;
     extraTwo--;
     extraMSG.textContent = `${extraTwo} extra roll left`;
     kocki.forEach(kocka =>{
@@ -346,6 +347,7 @@ extraRolls.addEventListener('click', () => {
                     extraRolls.disabled = true;
                 }
                 resetYamb.disabled = false;
+                exitYamb.disabled = false;
             }, 3100);
         }
     });
