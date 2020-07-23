@@ -305,7 +305,8 @@ rollYambBtn.addEventListener('click', () => {
         Rleft.textContent = `${rollsLeft} rolls left`;
         kocki.forEach(kocka =>{
             if(kocka.style.color === 'rgb(44, 44, 119)'){
-
+                resetYamb.disabled = false;
+                exitYamb.disabled = false;
             }else{
                 throwdice(kocka);
                 kocka.classList.remove('shake');
@@ -335,6 +336,8 @@ extraRolls.addEventListener('click', () => {
     kocki.forEach(kocka =>{
         
         if(kocka.style.color === 'rgb(44, 44, 119)'){
+            resetYamb.disabled = false;
+            exitYamb.disabled = false;
         }else{
             throwdice(kocka);
             kocka.classList.remove('shake');
