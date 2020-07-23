@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roll a Dice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Roll a Dice</h1>
+            <img src="./img/rolling-dice-cup.png" alt="">
+            <h2 id="playUpTo" style="margin-top: 1rem"></h2>
+        </div>
+
+        <div class="intro">
+                <button class="btn-custom mb-2" id="startBtn">Play</button>
+                <p>Nenou &copy; All Rights Reserved.</p>
+        </div>
+
+        <div class="game-options">
+            <button class="btn-custom btn-block btn-opt" id="1">Play up to 1</button>
+            <button class="btn-custom btn-block btn-opt" id="3">Play up to 3</button>
+            <button class="btn-custom btn-block btn-opt" id="5">Play up to 5</button>
+            <button class="btn-custom btn-block btn-opt" id="7">Play up to 7</button>
+            <button class="btn-custom btn-block btn-opt" id="10">Play up to 10</button>
+            <button class="btn-custom btn-block btn-opt" id="15">Play up to 15</button>
+        </div>
+
+        <div class="game">
+            <div class="match">
+                <div class="player">
+                    <p style="margin-bottom:0.4rem">YOU</p>
+                    <p class="Ppoints mb-1">0</p>
+                    <div class="dice"></div>
+                </div>
+                <div class="message">
+                    <p id="messageTxt"></p>
+                </div>
+                <div class="computer">
+                    <p style="margin-bottom:0.4rem">PC</p>
+                    <p class="Cpoints mb-1">0</p>
+                    <div class="pc"></div>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="btn-custom" id="rollBtn">Roll</button>
+                <button class="btn-custom" id="clearBtn" disabled>Reset</button>
+            </div>
+        </div>
+    
+        <div class="end-game">
+            <h1 class="winnerMessage"></h1>
+            <button class="btn-custom" id="newGame">New Game</button>
+            <div class="social">
+                <a href="https://www.facebook.com/neno.vuckovich" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/nenad-vuchkovikj-0943a51a0/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/nenovuckovic/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+       
+        <script src="https://kit.fontawesome.com/b219fdc4e6.js"></script>
+        <script src="./app.js"></script>
+</body>
+</html>
