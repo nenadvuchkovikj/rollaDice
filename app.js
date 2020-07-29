@@ -7,7 +7,6 @@ const msg = document.querySelector('#messageTxt');
 const clearBtn = document.querySelector('#clearBtn');
 const startBtn = document.getElementById('startBtn');
 
-
 const exitOpt = document.getElementById('exitOpt');
 const exitGame = document.getElementById('exitGame');
 
@@ -106,9 +105,9 @@ RollButton.addEventListener('click', () => {
                 game.classList.add('fadeOut');
                 end.classList.add('fadeIn');
                 playUpTo.textContent = '';
-            }, 1500); 
+            }, 1000); 
         };
-    }, 3100);
+    }, 1100);
 });
 
 getNumber = () => {
@@ -179,6 +178,7 @@ roll = (kocka) =>{
 throwdice = (kocka) => {
         let Wordnumber;
         let i = 1;
+        
         let rolling = setInterval(() => {
             if(i === 1){
                 Wordnumber = 'one';
@@ -208,7 +208,7 @@ throwdice = (kocka) => {
         }, 100);
         setTimeout(()=>{
             clearInterval(rolling);
-        }, 3000);
+        }, 1000);
 }
 
 checkWinner = (player, pc) => {
@@ -333,7 +333,7 @@ rollYambBtn.addEventListener('click', () => {
                     }
                     resetYamb.disabled = false;
                     exitYamb.disabled = false;
-                }, 3100);
+                }, 1100);
             }
         });
 
@@ -365,7 +365,7 @@ extraRolls.addEventListener('click', () => {
                 }
                 resetYamb.disabled = false;
                 exitYamb.disabled = false;
-            }, 3100);
+            }, 1100);
         }
     });
    
