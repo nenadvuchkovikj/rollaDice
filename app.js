@@ -25,6 +25,7 @@ const end = document.querySelector('.end-game');
 let lives = 0;
 let Ppoints = 0;
 let Cpoints = 0;
+let isRolling = false;
 
 clearBtn.addEventListener('click',() =>{
     if(confirm('Are you sure you want to reset the score?')){
@@ -178,7 +179,8 @@ roll = (kocka) =>{
 throwdice = (kocka) => {
         let Wordnumber;
         let i = 1;
-        
+        isRolling = true;
+        clearBtn.disabled = true;
         let rolling = setInterval(() => {
             if(i === 1){
                 Wordnumber = 'one';
@@ -208,6 +210,7 @@ throwdice = (kocka) => {
         }, 100);
         setTimeout(()=>{
             clearInterval(rolling);
+            isRolling = false;
         }, 1000);
 }
 
@@ -301,87 +304,80 @@ yambBtn.addEventListener('click', () => {
 });
 
 rollYambBtn.addEventListener('click', () => {
-        rollYambBtn.disabled = true;
+      if(selected !== 6){
+            rollYambBtn.disabled = true;
+            resetYamb.disabled = true;
+            exitYamb.disabled = true;
+            rollsLeft--;
+            if(rollsLeft === 3 || rollsLeft === 2){
+                Rleft.style.color = "rgb(58, 197, 58)";
+            } else if(rollsLeft === 1){
+                Rleft.style.color = "rgb(223, 223, 57)";
+            } else if(rollsLeft === 0){
+                Rleft.style.color = "rgb(218, 49, 49)";
+            }
+            Rleft.textContent = `${rollsLeft} rolls left`;
+            kocki.forEach(kocka =>{
+                    if(!(kocka.style.color === 'rgb(44, 44, 119)')){
+                        throwdice(kocka);
+                        kocka.classList.remove('shake');
+                        setTimeout(()=>{
+                            roll(kocka);
+                            if(rollsLeft !== 0){
+                                rollYambBtn.disabled = false;
+                            }
+                            if(rollsLeft === 0){
+                                rollYambBtn.disabled = true;
+                                extraRolls.disabled = false;
+                            }
+                            resetYamb.disabled = false;
+                            exitYamb.disabled = false;
+                        }, 1100);
+                    }
+            });
+        }
+});
+
+extraRolls.addEventListener('click', () => {
+    if(selected !== 6){
+        extraRolls.disabled = true;
         resetYamb.disabled = true;
         exitYamb.disabled = true;
-        rollsLeft--;
-        if(rollsLeft === 3 || rollsLeft === 2){
-            Rleft.style.color = "rgb(58, 197, 58)";
-        } else if(rollsLeft === 1){
-            Rleft.style.color = "rgb(223, 223, 57)";
-        } else if(rollsLeft === 0){
-            Rleft.style.color = "rgb(218, 49, 49)";
-        }
-        Rleft.textContent = `${rollsLeft} rolls left`;
+        extraTwo--;
+        extraMSG.textContent = `${extraTwo} extra roll left`;
         kocki.forEach(kocka =>{
-            if(kocka.style.color === 'rgb(44, 44, 119)'){
-                if(selected === 6){
-                    resetYamb.disabled = false;
-                    exitYamb.disabled = false;
-                }
-            }else{
+            if(!(kocka.style.color === 'rgb(44, 44, 119)')){
                 throwdice(kocka);
                 kocka.classList.remove('shake');
                 setTimeout(()=>{
                     roll(kocka);
-                    if(rollsLeft !== 0){
-                        rollYambBtn.disabled = false;
-                    }
-                    if(rollsLeft === 0){
-                        rollYambBtn.disabled = true;
+                    if(extraTwo !== 0){
                         extraRolls.disabled = false;
+                    }
+                    if(extraTwo === 0){
+                        extraRolls.disabled = true;
                     }
                     resetYamb.disabled = false;
                     exitYamb.disabled = false;
                 }, 1100);
             }
         });
-
-});
-
-extraRolls.addEventListener('click', () => {
-    extraRolls.disabled = true;
-    resetYamb.disabled = true;
-    exitYamb.disabled = true;
-    extraTwo--;
-    extraMSG.textContent = `${extraTwo} extra roll left`;
-    kocki.forEach(kocka =>{
-        
-        if(kocka.style.color === 'rgb(44, 44, 119)'){
-            if(selected === 6){
-                resetYamb.disabled = false;
-                exitYamb.disabled = false;
-            }
-        }else{
-            throwdice(kocka);
-            kocka.classList.remove('shake');
-            setTimeout(()=>{
-                roll(kocka);
-                if(extraTwo !== 0){
-                    extraRolls.disabled = false;
-                }
-                if(extraTwo === 0){
-                    extraRolls.disabled = true;
-                }
-                resetYamb.disabled = false;
-                exitYamb.disabled = false;
-            }, 1100);
-        }
-    });
-   
+    }
 });
 let selected = 0;
 
 kocki.forEach(kocka => {
     kocka.style.color = 'white';
     kocka.addEventListener('click',()=>{
-        if(kocka.style.color === 'white' && !(kocka.firstElementChild.classList.contains('fa-dice-d6'))){
-            kocka.style.color = 'rgb(44, 44, 119)';
-            selected++;
-        }
-        else{
-            kocka.style.color = 'white';
-            selected--;
+        if(!isRolling){
+            if(kocka.style.color === 'white' && !(kocka.firstElementChild.classList.contains('fa-dice-d6'))){
+                kocka.style.color = 'rgb(44, 44, 119)';
+                selected++;
+            }
+            else{
+                kocka.style.color = 'white';
+                selected--;
+            }
         }
     });
 });
